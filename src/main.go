@@ -35,6 +35,10 @@ func main() {
 	// ds.TestSet(s)
 
 	// Set
-	ht := ds.NewHashTable()
-	ds.TestHashTable(ht)
+	// ht := ds.NewHashTable()
+	// ds.TestHashTable(ht)
+
+	// Tree
+	var tn ds.TreeNode
+	ds.TestTree(tn)
 }
