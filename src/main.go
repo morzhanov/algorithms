@@ -1,8 +1,6 @@
 package main
 
-import (
-	"local/algorithms/src/ds"
-)
+import "local/algorithms/src/sort"
 
 func main() {
 
@@ -39,6 +37,15 @@ func main() {
 	// ds.TestHashTable(ht)
 
 	// Tree
-	var tn ds.TreeNode
-	ds.TestTree(tn)
+	// var tn ds.TreeNode
+	// ds.TestTree(tn)
+
+	/*
+	* Sorting
+	 */
+
+	// StupidSorting
+	// extremely stupid sorting, do not provide more than 5-10 elements or app could stuck
+	values := [8]int{102, 4, 2, 212, 3, 4, 5, 22}
+	sort.TestStupidSort(values[:])
 }
