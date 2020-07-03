@@ -46,6 +46,10 @@ func main() {
 
 	// StupidSorting
 	// extremely stupid sorting, do not provide more than 5-10 elements or app could stuck
-	values := [8]int{102, 4, 2, 212, 3, 4, 5, 22}
-	sort.TestStupidSort(values[:])
+	// values := [8]int{102, 4, 2, 212, 3, 4, 5, 22}
+	// sort.TestStupidSort(values[:])
+
+	// BubbleSorting
+	values := [20]int{1, 4, 2, 31, 3, 4, 5, 22, 1241, 4, 2, 73, 3, 4, 5, 22, 56, 22, 1, 2}
+	sort.TestBubbleSort(values[:])
 }
