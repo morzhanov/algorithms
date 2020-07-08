@@ -1,6 +1,9 @@
 package main
 
-import "local/algorithms/src/sort"
+import (
+	"local/algorithms/src/sort"
+	"math/rand"
+)
 
 func main() {
 
@@ -58,6 +61,16 @@ func main() {
 	// sort.TestCountingSort(values[:])
 
 	// SelectionSorting
-	values := [20]int{1, 4, 2, 31, 3, 4, 5, 22, 101, 4, 2, 73, 3, 4, 5, 22, 56, 22, 1, 2}
-	sort.TestSelectionSort(values[:])
+	// values := make([]int, 1000)
+	// for i := range values {
+	// 	values[i] = rand.Intn(100)
+	// }
+	// sort.TestSelectionSort(values[:])
+
+	// MergeSorting
+	values := make([]int, 1000)
+	for i := range values {
+		values[i] = rand.Intn(100)
+	}
+	sort.TestMergeSort(values[:])
 }
