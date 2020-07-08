@@ -68,9 +68,16 @@ func main() {
 	// sort.TestSelectionSort(values[:])
 
 	// MergeSorting
+	// values := make([]int, 1000)
+	// for i := range values {
+	// 	values[i] = rand.Intn(100)
+	// }
+	// sort.TestMergeSort(values[:])
+
+	// InsertionSorting
 	values := make([]int, 1000)
 	for i := range values {
 		values[i] = rand.Intn(100)
 	}
-	sort.TestMergeSort(values[:])
+	sort.TestInsertionSort(values[:])
 }
