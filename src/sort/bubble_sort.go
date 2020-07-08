@@ -42,7 +42,7 @@ func BubbleSortAlt(arr []int) ([]int, int) {
 	return arr, iterations
 }
 
-// TestBubbleSort function tests StupidSort
+// TestBubbleSort function tests BubbleSort
 // You could provide elements array to sort
 func TestBubbleSort(values []int) {
 	fmt.Printf("Bubble sorting started\n")
