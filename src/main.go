@@ -54,6 +54,10 @@ func main() {
 	// sort.TestBubbleSort(values[:])
 
 	// CountingSorting
+	// values := [20]int{1, 4, 2, 31, 3, 4, 5, 22, 101, 4, 2, 73, 3, 4, 5, 22, 56, 22, 1, 2}
+	// sort.TestCountingSort(values[:])
+
+	// SelectionSorting
 	values := [20]int{1, 4, 2, 31, 3, 4, 5, 22, 101, 4, 2, 73, 3, 4, 5, 22, 56, 22, 1, 2}
-	sort.TestCountingSort(values[:])
+	sort.TestSelectionSort(values[:])
 }
