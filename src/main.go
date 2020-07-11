@@ -105,6 +105,11 @@ func main() {
 	// search.TestBinarySearch(values[:], value)
 
 	// BinarySearch
+	// values, value := prepareValuesForSeach(false)
+	// search.TestLinearSearch(values[:], value)
+
+	// JumpSearch
+	// NOTE: array should be sorted
 	values, value := prepareValuesForSeach(false)
-	search.TestLinearSearch(values[:], value)
+	search.TestJumpSearch(values[:], value)
 }

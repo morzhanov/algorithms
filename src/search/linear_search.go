@@ -19,7 +19,7 @@ func LinearSearch(arr []int, val int) (int, int) {
 
 // TestLinearSearch function tests LinearSearch
 func TestLinearSearch(values []int, value int) {
-	fmt.Printf("Binary search started, searching for element %v\n", value)
+	fmt.Printf("Linear search started, searching for element %v\n", value)
 	pos, iterations := LinearSearch(values[:], value)
 	fmt.Printf("Linear search finished. Elements count = %v; Iterations taken = %v\n", len(values), iterations)
 	fmt.Printf("Linear search elements: %v\n", values)
