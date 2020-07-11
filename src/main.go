@@ -6,6 +6,28 @@ import (
 	"math/rand"
 )
 
+func prepareValuesForSeach(performSorting bool) ([]int, int) {
+	values := make([]int, 100)
+	value := 112
+	for i := range values {
+		values[i] = rand.Intn(500)
+	}
+	values[9] = value
+
+	if performSorting {
+		sort.MergeSort(values[:], 0, len(values)-1)
+	}
+	return values, value
+}
+
+func prepareValuesForSort() []int {
+	values := make([]int, 1000)
+	for i := range values {
+		values[i] = rand.Intn(100)
+	}
+	return values
+}
+
 func main() {
 
 	/*
@@ -50,36 +72,27 @@ func main() {
 
 	// StupidSorting
 	// extremely stupid sorting, do not provide more than 5-10 elements or app could stuck
-	// values := [8]int{102, 4, 2, 212, 3, 4, 5, 22}
+	// values := prepareValuesForSort()
 	// sort.TestStupidSort(values[:])
 
 	// BubbleSorting
-	// values := [20]int{1, 4, 2, 31, 3, 4, 5, 22, 1241, 4, 2, 73, 3, 4, 5, 22, 56, 22, 1, 2}
+	// values := prepareValuesForSort()
 	// sort.TestBubbleSort(values[:])
 
 	// CountingSorting
-	// values := [20]int{1, 4, 2, 31, 3, 4, 5, 22, 101, 4, 2, 73, 3, 4, 5, 22, 56, 22, 1, 2}
+	// values := prepareValuesForSort()
 	// sort.TestCountingSort(values[:])
 
 	// SelectionSorting
-	// values := make([]int, 1000)
-	// for i := range values {
-	// 	values[i] = rand.Intn(100)
-	// }
+	// values := prepareValuesForSort()
 	// sort.TestSelectionSort(values[:])
 
 	// MergeSorting
-	// values := make([]int, 1000)
-	// for i := range values {
-	// 	values[i] = rand.Intn(100)
-	// }
+	// values := prepareValuesForSort()
 	// sort.TestMergeSort(values[:])
 
 	// InsertionSorting
-	// values := make([]int, 1000)
-	// for i := range values {
-	// 	values[i] = rand.Intn(100)
-	// }
+	// values := prepareValuesForSort()
 	// sort.TestInsertionSort(values[:])
 
 	/*
@@ -88,12 +101,10 @@ func main() {
 
 	// BinarySearch
 	// NOTE: array should be sorted
-	values := make([]int, 100)
-	value := 112
-	for i := range values {
-		values[i] = rand.Intn(500)
-	}
-	values[9] = value
-	sort.MergeSort(values[:], 0, len(values)-1)
-	search.TestBinarySearch(values[:], value)
+	// values, value := prepareValuesForSeach(true)
+	// search.TestBinarySearch(values[:], value)
+
+	// BinarySearch
+	values, value := prepareValuesForSeach(false)
+	search.TestLinearSearch(values[:], value)
 }

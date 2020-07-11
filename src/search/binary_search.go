@@ -25,7 +25,7 @@ func BinarySearch(arr []int, l int, r int, val int, iteration int) (int, int) {
 
 // TestBinarySearch function tests BinarySearch
 func TestBinarySearch(values []int, value int) {
-	fmt.Printf("Binary search started\n")
+	fmt.Printf("Binary search started, searching for element %v\n", value)
 	pos, iterations := BinarySearch(values[:], 0, len(values)-1, value, 0)
 	fmt.Printf("Binary search finished. Elements count = %v; Iterations taken = %v\n", len(values), iterations)
 	fmt.Printf("Binary search elements: %v\n", values)
