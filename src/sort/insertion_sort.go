@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// InsertionSort function implements counting sort algorithm
+// InsertionSort function implements insertion sort algorithm
 func InsertionSort(arr []int) ([]int, int) {
 	iterations := 0
 	n := len(arr)

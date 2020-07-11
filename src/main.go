@@ -1,6 +1,7 @@
 package main
 
 import (
+	"local/algorithms/src/search"
 	"local/algorithms/src/sort"
 	"math/rand"
 )
@@ -75,9 +76,24 @@ func main() {
 	// sort.TestMergeSort(values[:])
 
 	// InsertionSorting
-	values := make([]int, 1000)
+	// values := make([]int, 1000)
+	// for i := range values {
+	// 	values[i] = rand.Intn(100)
+	// }
+	// sort.TestInsertionSort(values[:])
+
+	/*
+	* Search
+	 */
+
+	// BinarySearch
+	// NOTE: array should be sorted
+	values := make([]int, 100)
+	value := 112
 	for i := range values {
-		values[i] = rand.Intn(100)
+		values[i] = rand.Intn(500)
 	}
-	sort.TestInsertionSort(values[:])
+	values[9] = value
+	sort.MergeSort(values[:], 0, len(values)-1)
+	search.TestBinarySearch(values[:], value)
 }
