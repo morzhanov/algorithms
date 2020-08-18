@@ -75,6 +75,11 @@ func dataStructures(flags map[string]bool) {
 		var tn ds.BinaryTreeNode
 		ds.TestBinaryTree(tn)
 	}
+	if flags["binarySearchTree"] == true {
+		// BinarySearchTree
+		var tn ds.BinarySearchTreeNode
+		ds.TestBinarySearchTree(tn)
+	}
 }
 
 func sorting(flags map[string]bool) {
@@ -142,8 +147,9 @@ func main() {
 		"doublyLinkedList": false,
 		"set":              false,
 		"hashTable":        false,
-		"tree":             true,
+		"tree":             false,
 		"binaryTree":       false,
+		"binarySearchTree": true,
 	}
 	sortingFlags := map[string]bool{
 		"stupid":    false,

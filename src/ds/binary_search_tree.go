@@ -6,16 +6,16 @@ import (
 	"math"
 )
 
-// BinaryTreeNode is a BinaryTree node implementation
-type BinaryTreeNode struct {
-	left   *BinaryTreeNode
-	right  *BinaryTreeNode
-	parent *BinaryTreeNode
+// BinarySearchTreeNode is a BinarySearchTree node implementation
+type BinarySearchTreeNode struct {
+	left   *BinarySearchTreeNode
+	right  *BinarySearchTreeNode
+	parent *BinarySearchTreeNode
 	value  int
 }
 
 // GetLeftHeight method returns node left height
-func (tn *BinaryTreeNode) GetLeftHeight() int {
+func (tn *BinarySearchTreeNode) GetLeftHeight() int {
 	if tn.left == nil {
 		return 0
 	}
@@ -23,7 +23,7 @@ func (tn *BinaryTreeNode) GetLeftHeight() int {
 }
 
 // GetRightHeight method returns node right height
-func (tn *BinaryTreeNode) GetRightHeight() int {
+func (tn *BinarySearchTreeNode) GetRightHeight() int {
 	if tn.right == nil {
 		return 0
 	}
@@ -31,17 +31,17 @@ func (tn *BinaryTreeNode) GetRightHeight() int {
 }
 
 // GetHeight method returns node height
-func (tn *BinaryTreeNode) GetHeight() int {
+func (tn *BinarySearchTreeNode) GetHeight() int {
 	return int(math.Max(float64(tn.GetLeftHeight()), float64(tn.GetRightHeight())))
 }
 
 // GetBalanceFactor returns node balance factor
-func (tn *BinaryTreeNode) GetBalanceFactor() int {
+func (tn *BinarySearchTreeNode) GetBalanceFactor() int {
 	return tn.GetLeftHeight() - tn.GetRightHeight()
 }
 
 // Uncle method returns node uncle
-func (tn *BinaryTreeNode) Uncle() *BinaryTreeNode {
+func (tn *BinarySearchTreeNode) Uncle() *BinarySearchTreeNode {
 	if tn.parent == nil || tn.parent.parent == nil {
 		return nil
 	}
@@ -60,12 +60,12 @@ func (tn *BinaryTreeNode) Uncle() *BinaryTreeNode {
 }
 
 // SetValue method sets node value
-func (tn *BinaryTreeNode) SetValue(value int) {
+func (tn *BinarySearchTreeNode) SetValue(value int) {
 	tn.value = value
 }
 
 // SetLeft method sets left child
-func (tn *BinaryTreeNode) SetLeft(node *BinaryTreeNode) {
+func (tn *BinarySearchTreeNode) SetLeft(node *BinarySearchTreeNode) {
 	// Reset parent for left node since it is going to be detached.
 	if tn.left != nil {
 		tn.left.parent = nil
@@ -81,7 +81,7 @@ func (tn *BinaryTreeNode) SetLeft(node *BinaryTreeNode) {
 }
 
 // SetRight method sets right child
-func (tn *BinaryTreeNode) SetRight(node *BinaryTreeNode) {
+func (tn *BinarySearchTreeNode) SetRight(node *BinarySearchTreeNode) {
 	// Reset parent for right node since it is going to be detached.
 	if tn.right != nil {
 		tn.right.parent = nil
@@ -97,7 +97,7 @@ func (tn *BinaryTreeNode) SetRight(node *BinaryTreeNode) {
 }
 
 // RemoveChild method removes node child
-func (tn *BinaryTreeNode) RemoveChild(nodeToRemove *BinaryTreeNode) error {
+func (tn *BinarySearchTreeNode) RemoveChild(nodeToRemove *BinarySearchTreeNode) error {
 	if tn.left != nil && tn.left == nodeToRemove {
 		tn.left.parent = nil
 		tn.left = nil
@@ -112,7 +112,7 @@ func (tn *BinaryTreeNode) RemoveChild(nodeToRemove *BinaryTreeNode) error {
 }
 
 // ReplaceChild method replaces node child
-func (tn *BinaryTreeNode) ReplaceChild(nodeToReplace *BinaryTreeNode, replacementNode *BinaryTreeNode) error {
+func (tn *BinarySearchTreeNode) ReplaceChild(nodeToReplace *BinarySearchTreeNode, replacementNode *BinarySearchTreeNode) error {
 	if tn.left != nil && tn.left == nodeToReplace {
 		tn.left.parent = nil
 		tn.left = replacementNode
@@ -127,9 +127,9 @@ func (tn *BinaryTreeNode) ReplaceChild(nodeToReplace *BinaryTreeNode, replacemen
 }
 
 // Traverse tree
-func (tn *BinaryTreeNode) Traverse() []*BinaryTreeNode {
-	leftTraverse := make([]*BinaryTreeNode, 0)
-	rightTraverse := make([]*BinaryTreeNode, 0)
+func (tn *BinarySearchTreeNode) Traverse() []*BinarySearchTreeNode {
+	leftTraverse := make([]*BinarySearchTreeNode, 0)
+	rightTraverse := make([]*BinarySearchTreeNode, 0)
 	if tn.left != nil {
 		leftTraverse = tn.left.Traverse()
 	}
@@ -137,7 +137,7 @@ func (tn *BinaryTreeNode) Traverse() []*BinaryTreeNode {
 		rightTraverse = tn.right.Traverse()
 	}
 
-	res := make([]*BinaryTreeNode, 1)
+	res := make([]*BinarySearchTreeNode, 1)
 	res[0] = tn
 	res = append(res, leftTraverse...)
 	res = append(res, rightTraverse...)
@@ -145,42 +145,66 @@ func (tn *BinaryTreeNode) Traverse() []*BinaryTreeNode {
 }
 
 // Insert inserts the Item t in the tree
-func (tn *BinaryTreeNode) Insert(value int) {
-	newNode := &BinaryTreeNode{nil, nil, nil, value}
-	insertBinaryNode(tn, newNode)
+func (tn *BinarySearchTreeNode) Insert(value int) {
+	newNode := &BinarySearchTreeNode{nil, nil, nil, value}
+	insertBinarySearchNode(tn, newNode)
 }
 
 // internal function to find the correct place for a node in a tree
-func insertBinaryNode(node, newNode *BinaryTreeNode) {
-	if node.left == nil {
-		newNode.parent = node
-		node.left = newNode
-	}
-	if node.right == nil {
-		newNode.parent = node
-		node.right = newNode
-	}
-	if node.left.GetHeight() < node.right.GetHeight() {
-		insertBinaryNode(node.left, newNode)
+func insertBinarySearchNode(node, newNode *BinarySearchTreeNode) {
+	if newNode.value < node.value {
+		if node.left == nil {
+			newNode.parent = node
+			node.left = newNode
+		} else {
+			insertBinarySearchNode(node.left, newNode)
+		}
 	} else {
-		insertBinaryNode(node.right, newNode)
+		if node.right == nil {
+			newNode.parent = node
+			node.right = newNode
+		} else {
+			insertBinarySearchNode(node.right, newNode)
+		}
 	}
 }
 
-// TestBinaryTree method tests binary tree
-func TestBinaryTree(tn BinaryTreeNode) {
+// Search function searches node by value
+func (tn *BinarySearchTreeNode) Search(value int) *BinarySearchTreeNode {
+	if tn.value == value {
+		return tn
+	}
+	if tn.value > value && tn.left != nil {
+		return tn.left.Search(value)
+	}
+	if tn.value < value && tn.right != nil {
+		return tn.right.Search(value)
+	}
+	return nil
+}
+
+// TestBinarySearchTree method tests binary tree
+func TestBinarySearchTree(tn BinarySearchTreeNode) {
 	// add nodes
 	values := [15]int{1, 5, 2, 7, 3, 9, 0, 5, 6, 2, 4, 1, 9, 11, 5}
 	for i := 1; i < len(values); i++ {
 		tn.Insert(values[i])
 	}
 	traverse := tn.Traverse()
-	fmt.Printf("Traversing BinaryTree...\n")
+	fmt.Printf("Traversing BinarySearchTree...\n")
 	for i := 0; i < len(traverse); i++ {
 		fmt.Printf("Node #%v: Value = %v; Left = %v; Right = %v\n", i+1, traverse[i].value, traverse[i].left, traverse[i].right)
 	}
-	fmt.Printf("Traversing BinaryTree completed\n")
+	fmt.Printf("Traversing BinarySearchTree completed\n")
 
 	h := tn.GetHeight()
-	fmt.Printf("BinaryTree hight: %v\n", h)
+	fmt.Printf("BinarySearchTree hight: %v\n", h)
+
+	val := 7
+	node := tn.Search(val)
+	fmt.Printf("BinarySearchTree node with value %v found: %v\n", val, node)
+
+	val = 100
+	node = tn.Search(val)
+	fmt.Printf("BinarySearchTree node with value %v not found: %v\n", val, node)
 }
