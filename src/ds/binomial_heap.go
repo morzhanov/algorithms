@@ -6,6 +6,11 @@ import (
 	"math"
 )
 
+// https://www.geeksforgeeks.org/binomial-heap-2/
+// https://www.geeksforgeeks.org/memory-representation-of-binomial-heap/?ref=rp
+// https://www.geeksforgeeks.org/implementation-binomial-heap/
+// https://www.geeksforgeeks.org/implementation-binomial-heap-set-2/?ref=rp
+
 // MinHeap is a Min Binary Heap implementation
 type MinHeap []int
 

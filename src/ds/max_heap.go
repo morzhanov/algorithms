@@ -6,7 +6,7 @@ import (
 	"math"
 )
 
-// MaxHeap is a MaxHeap implementation
+// MaxHeap is a Max Binary Heap implementation
 type MaxHeap []int
 
 func (h *MaxHeap) getLeftChildIndex(parentIdx int) int {
