@@ -3,94 +3,117 @@ package ds
 import (
 	"errors"
 	"fmt"
+	"math"
 )
 
-// TreeNode is a Tree node implementation
-type TreeNode struct {
-	children []*TreeNode
-	parent   *TreeNode
-	value    int
+// MaxHeap is a MaxHeap implementation
+type MaxHeap []int
+
+func (h *MaxHeap) getLeftChildIndex(parentIdx int) int {
+	return 2*parentIdx + 1
+}
+func (h *MaxHeap) getRightChildIndex(parentIdx int) int {
+	return 2*parentIdx + 2
+}
+func (h *MaxHeap) getParentIndex(childIdx int) int {
+	return (childIdx - 1) / 2
 }
 
-// GetHeight method returns node height
-func (tn *TreeNode) GetHeight() int {
-	if len(tn.children) == 0 {
-		return 1
+func (h *MaxHeap) getLeftChild(idx int) int {
+	return (*h)[h.getLeftChildIndex(idx)]
+}
+func (h *MaxHeap) getRightChild(idx int) int {
+	return (*h)[h.getRightChildIndex(idx)]
+}
+func (h *MaxHeap) getParent(idx int) int {
+	return (*h)[h.getParentIndex(idx)]
+}
+
+func (h *MaxHeap) hasLeftChild(idx int) bool {
+	return h.getLeftChildIndex(idx) < len(*h)
+}
+func (h *MaxHeap) hasRightChild(idx int) bool {
+	return h.getRightChildIndex(idx) < len(*h)
+}
+func (h *MaxHeap) hasParent(idx int) bool {
+	return h.getParentIndex(idx) >= 0
+}
+
+func (h *MaxHeap) swap(firstIndex int, secondIndex int) {
+	(*h)[firstIndex], (*h)[secondIndex] = (*h)[secondIndex], (*h)[firstIndex]
+}
+
+// Peek method returns first heap element
+func (h *MaxHeap) Peek() (int, error) {
+	if len(*h) == 0 {
+		return 0, errors.New("Heap is empty")
 	}
-	max := 0
-	for _, child := range tn.children {
-		curr := child.GetHeight()
-		if curr > max {
-			max = curr
+	return (*h)[0], nil
+}
+
+func (h *MaxHeap) heapifyDown() {
+	idx := 0
+	for h.hasLeftChild(idx) {
+		maxIdx := h.getLeftChildIndex(idx)
+		if h.hasRightChild(idx) && h.getRightChild(idx) > h.getLeftChild(idx) {
+			maxIdx = h.getRightChildIndex(idx)
 		}
-	}
-	return max + 1
-}
 
-// SetValue method sets node value
-func (tn *TreeNode) SetValue(value int) {
-	tn.value = value
-}
-
-// RemoveChild method removes node child
-func (tn *TreeNode) RemoveChild(nodeToRemove *TreeNode) error {
-	for idx, child := range tn.children {
-		if child == nodeToRemove {
-			tn.children = append(tn.children[:idx], tn.children[idx+1:]...)
-			return nil
+		if (*h)[idx] > (*h)[maxIdx] {
+			break
+		} else {
+			h.swap(idx, maxIdx)
 		}
+		idx = maxIdx
 	}
-	return errors.New(("Node has no children"))
 }
 
-// ReplaceChild method replaces node child
-func (tn *TreeNode) ReplaceChild(nodeToReplace *TreeNode, replacementNode *TreeNode) error {
-	for idx, child := range tn.children {
-		if child == nodeToReplace {
-			tn.children[idx] = replacementNode
-			return nil
-		}
+func (h *MaxHeap) heapifyUp() {
+	idx := len(*h) - 1
+	for h.hasParent(idx) && h.getParent(idx) < (*h)[idx] {
+		h.swap(h.getParentIndex(idx), idx)
+		idx = h.getParentIndex(idx)
 	}
-	return errors.New(("Node not found"))
 }
 
-// Traverse tree
-func (tn *TreeNode) Traverse() []*TreeNode {
-	nodes := make([]*TreeNode, 0)
-	nodes = append(nodes, tn)
-	for _, child := range tn.children {
-		nodes = append(nodes, child.Traverse()...)
+// Pool method returns first heap element
+func (h *MaxHeap) Pool() (int, error) {
+	if len(*h) == 0 {
+		return 0, errors.New("Heap is empty")
 	}
-	return nodes
+
+	item := (*h)[0]
+	(*h)[0] = (*h)[len(*h)-1]
+	*h = (*h)[:len(*h)-1]
+	h.heapifyDown()
+
+	return item, nil
 }
 
-// AddChild inserts new node to the node children array
-func (tn *TreeNode) AddChild(n *TreeNode) {
-	n.parent = tn
-	tn.children = append(tn.children, n)
+// Add method adds element to Heap
+func (h *MaxHeap) Add(item int) {
+	*h = append(*h, item)
+	h.heapifyUp()
 }
 
-// TestTree method tests tree
-func TestTree(tn TreeNode) {
-	// add 5 children nodes to root and 5 nodes to each root child
-	for i := 0; i < 5; i++ {
-		node := TreeNode{value: i}
-		tn.AddChild(&node)
-	}
-	for _, child := range tn.children {
-		for i := 0; i < 5; i++ {
-			node := TreeNode{value: i}
-			child.AddChild(&node)
-		}
+// GetHeight method returns max heap height
+func (h *MaxHeap) GetHeight() float64 {
+	return math.Ceil(math.Log2(float64(len(*h))))
+}
+
+// TestMaxHeap method tests heap
+func TestMaxHeap(heap MaxHeap) {
+	elements := []int{25, 20, 6, 8, 7, 2, 1, 5, 2, 4, 67, 8, 20}
+	for _, el := range elements {
+		heap.Add(el)
+		fmt.Printf("Added element %v to max heap. Result MaxHeap %v\n", el, heap)
 	}
 
-	traverse := tn.Traverse()
-	fmt.Printf("Traversing Tree...\n")
-	for i := 0; i < len(traverse); i++ {
-		fmt.Printf("Node #%v: Value = %v; Parent = %v; Children count = %v\n", i+1, traverse[i].value, traverse[i].parent, len(traverse[i].children))
-	}
-	fmt.Printf("Traversing Tree completed\n")
+	peek, _ := heap.Peek()
+	fmt.Printf("MaxHeap peek element: %v\n", peek)
 
-	h := tn.GetHeight()
-	fmt.Printf("Tree hight: %v\n", h)
+	pool, _ := heap.Pool()
+	fmt.Printf("MaxHeap Pool called. Peek element: %v; MaxHeap: %v\n", pool, heap)
+
+	fmt.Printf("Heap hight: %v\n", heap.GetHeight())
 }

@@ -80,6 +80,16 @@ func dataStructures(flags map[string]bool) {
 		var tn ds.BinarySearchTreeNode
 		ds.TestBinarySearchTree(tn)
 	}
+	if flags["minHeap"] == true {
+		// MinHeap
+		var h ds.MinHeap
+		ds.TestMinHeap(h)
+	}
+	if flags["maxHeap"] == true {
+		// MaxHeap
+		var h ds.MaxHeap
+		ds.TestMaxHeap(h)
+	}
 }
 
 func sorting(flags map[string]bool) {
@@ -149,7 +159,9 @@ func main() {
 		"hashTable":        false,
 		"tree":             false,
 		"binaryTree":       false,
-		"binarySearchTree": true,
+		"binarySearchTree": false,
+		"minHeap":          true,
+		"maxHeap":          true,
 	}
 	sortingFlags := map[string]bool{
 		"stupid":    false,
