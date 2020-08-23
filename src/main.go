@@ -90,6 +90,11 @@ func dataStructures(flags map[string]bool) {
 		var h ds.MaxHeap
 		ds.TestMaxHeap(h)
 	}
+	if flags["binomialHeap"] == true {
+		// MaxHeap
+		var h ds.BinomialHeap
+		ds.TestBinomialHeap(h)
+	}
 }
 
 func sorting(flags map[string]bool) {
@@ -160,8 +165,9 @@ func main() {
 		"tree":             false,
 		"binaryTree":       false,
 		"binarySearchTree": false,
-		"minHeap":          true,
-		"maxHeap":          true,
+		"minHeap":          false,
+		"maxHeap":          false,
+		"binomialHeap":     true,
 	}
 	sortingFlags := map[string]bool{
 		"stupid":    false,
