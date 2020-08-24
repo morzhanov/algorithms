@@ -91,9 +91,14 @@ func dataStructures(flags map[string]bool) {
 		ds.TestMaxHeap(h)
 	}
 	if flags["binomialHeap"] == true {
-		// MaxHeap
+		// BinomialHeap
 		var h ds.BinomialHeap
 		ds.TestBinomialHeap(h)
+	}
+	if flags["fibonacciHeap"] == true {
+		// FibonacciHeap
+		var h ds.FibonacciHeap
+		ds.TestFibonacciHeap(h)
 	}
 }
 
@@ -167,7 +172,8 @@ func main() {
 		"binarySearchTree": false,
 		"minHeap":          false,
 		"maxHeap":          false,
-		"binomialHeap":     true,
+		"binomialHeap":     false,
+		"fibonacciHeap":    true,
 	}
 	sortingFlags := map[string]bool{
 		"stupid":    false,
