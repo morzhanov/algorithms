@@ -100,6 +100,11 @@ func dataStructures(flags map[string]bool) {
 		var h ds.FibonacciHeap
 		ds.TestFibonacciHeap(h)
 	}
+	if flags["trie"] == true {
+		// Trie
+		t := ds.CreateTrie()
+		ds.TestTrie(t)
+	}
 }
 
 func sorting(flags map[string]bool) {
@@ -173,7 +178,8 @@ func main() {
 		"minHeap":          false,
 		"maxHeap":          false,
 		"binomialHeap":     false,
-		"fibonacciHeap":    true,
+		"fibonacciHeap":    false,
+		"trie":             true,
 	}
 	sortingFlags := map[string]bool{
 		"stupid":    false,
