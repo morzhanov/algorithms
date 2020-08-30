@@ -24,7 +24,8 @@ func main() {
 		"binomialHeap":     false,
 		"fibonacciHeap":    false,
 		"trie":             false,
-		"redBlackTree":     true,
+		"redBlackTree":     false,
+		"avlTree":          true,
 	}
 	sortingFlags := map[string]bool{
 		"stupid":    false,

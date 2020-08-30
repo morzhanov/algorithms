@@ -43,3 +43,11 @@ func IntComparator(a int, b int) int {
 	}
 	return 0
 }
+
+// IntMax function returns max int
+func IntMax(a int, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}

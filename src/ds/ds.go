@@ -1,6 +1,7 @@
 package ds
 
 import (
+	"github.com/morzhanov/algorithms/src/ds/avltree"
 	"github.com/morzhanov/algorithms/src/ds/binarysearchtree"
 	"github.com/morzhanov/algorithms/src/ds/binarytree"
 	"github.com/morzhanov/algorithms/src/ds/binomialheap"
@@ -101,5 +102,10 @@ func RunDataStructuresTests(flags utils.AlgorithmEnableFlags) {
 		// RedBlackTree
 		t := redblacktree.CreateTree(10)
 		redblacktree.Test(t)
+	}
+	if flags["avlTree"] == true {
+		// AVLTree
+		var tn avltree.Node
+		avltree.Test(tn)
 	}
 }
