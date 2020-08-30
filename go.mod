@@ -1,3 +1,3 @@
-module local/algorithms
+module github.com/morzhanov/algorithms
 
 go 1.14

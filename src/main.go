@@ -1,10 +1,32 @@
 package main
 
 import (
-	"local/algorithms/src/ds"
-	"local/algorithms/src/search"
-	"local/algorithms/src/sort"
 	"math/rand"
+
+	"github.com/morzhanov/algorithms/src/ds/binarysearchtree"
+	"github.com/morzhanov/algorithms/src/ds/binarytree"
+	"github.com/morzhanov/algorithms/src/ds/binomialheap"
+	"github.com/morzhanov/algorithms/src/ds/doublylinkedlist"
+	"github.com/morzhanov/algorithms/src/ds/dynamicarray"
+	"github.com/morzhanov/algorithms/src/ds/fibonacciheap"
+	"github.com/morzhanov/algorithms/src/ds/hashtable"
+	"github.com/morzhanov/algorithms/src/ds/linkedlist"
+	"github.com/morzhanov/algorithms/src/ds/maxheap"
+	"github.com/morzhanov/algorithms/src/ds/minheap"
+	"github.com/morzhanov/algorithms/src/ds/queue"
+	"github.com/morzhanov/algorithms/src/ds/set"
+	"github.com/morzhanov/algorithms/src/ds/stack"
+	"github.com/morzhanov/algorithms/src/ds/tree"
+	"github.com/morzhanov/algorithms/src/ds/trie"
+	"github.com/morzhanov/algorithms/src/search/binarysearch"
+	"github.com/morzhanov/algorithms/src/search/jumpsearch"
+	"github.com/morzhanov/algorithms/src/search/linearsearch"
+	"github.com/morzhanov/algorithms/src/sort/bubblesort"
+	"github.com/morzhanov/algorithms/src/sort/countingsort"
+	"github.com/morzhanov/algorithms/src/sort/insertionsort"
+	"github.com/morzhanov/algorithms/src/sort/mergesort"
+	"github.com/morzhanov/algorithms/src/sort/selectionsort"
+	"github.com/morzhanov/algorithms/src/sort/stupidsort"
 )
 
 func prepareValuesForSeach(performSorting bool) ([]int, int) {
@@ -16,7 +38,7 @@ func prepareValuesForSeach(performSorting bool) ([]int, int) {
 	values[9] = value
 
 	if performSorting {
-		sort.MergeSort(values[:], 0, len(values)-1)
+		mergesort.MergeSort(values[:], 0, len(values)-1)
 	}
 	return values, value
 }
@@ -32,78 +54,78 @@ func prepareValuesForSort(count int) []int {
 func dataStructures(flags map[string]bool) {
 	if flags["stack"] == true {
 		// Stack
-		var stack ds.Stack
-		ds.TestStack(stack)
+		var s stack.Stack
+		stack.Test(s)
 	}
 	if flags["queue"] == true {
 		// Queue
-		var queue ds.Queue
-		ds.TestQueue(queue)
+		var q queue.Queue
+		queue.Test(q)
 	}
 	if flags["dynamicArray"] == true {
 		// DynamicArray
-		var da ds.DynamicArray
-		ds.TestDynamicArray(da)
+		var da dynamicarray.DynamicArray
+		dynamicarray.Test(da)
 	}
 	if flags["linkedList"] == true {
 		// LinkedList
-		var l ds.LinkedList
-		ds.TestLinkedList(l)
+		var l linkedlist.LinkedList
+		linkedlist.Test(l)
 	}
 	if flags["doublyLinkedList"] == true {
 		// DoublyLinkedList
-		var dl ds.DoublyLinkedList
-		ds.TestDoublyLinkedList(dl)
+		var dl doublylinkedlist.DoublyLinkedList
+		doublylinkedlist.Test(dl)
 	}
 	if flags["set"] == true {
 		// Set
-		var s ds.Set
-		ds.TestSet(s)
+		var s set.Set
+		set.Test(s)
 	}
 	if flags["hashTable"] == true {
 		// HashTable
-		ht := ds.NewHashTable()
-		ds.TestHashTable(ht)
+		ht := hashtable.NewHashTable()
+		hashtable.Test(ht)
 	}
 	if flags["tree"] == true {
 		// Tree
-		var tn ds.TreeNode
-		ds.TestTree(tn)
+		var tn tree.Node
+		tree.Test(tn)
 	}
 	if flags["binaryTree"] == true {
 		// BinaryTree
-		var tn ds.BinaryTreeNode
-		ds.TestBinaryTree(tn)
+		var tn binarytree.Node
+		binarytree.Test(tn)
 	}
 	if flags["binarySearchTree"] == true {
 		// BinarySearchTree
-		var tn ds.BinarySearchTreeNode
-		ds.TestBinarySearchTree(tn)
+		var tn binarysearchtree.Node
+		binarysearchtree.Test(tn)
 	}
 	if flags["minHeap"] == true {
 		// MinHeap
-		var h ds.MinHeap
-		ds.TestMinHeap(h)
+		var h minheap.MinHeap
+		minheap.Test(h)
 	}
 	if flags["maxHeap"] == true {
 		// MaxHeap
-		var h ds.MaxHeap
-		ds.TestMaxHeap(h)
+		var h maxheap.MaxHeap
+		maxheap.Test(h)
 	}
 	if flags["binomialHeap"] == true {
 		// BinomialHeap
-		var h ds.BinomialHeap
-		ds.TestBinomialHeap(h)
+		var h binomialheap.BinomialHeap
+		binomialheap.Test(h)
 	}
 	if flags["fibonacciHeap"] == true {
 		// FibonacciHeap
-		var h ds.FibonacciHeap
-		ds.TestFibonacciHeap(h)
+		var h fibonacciheap.FibonacciHeap
+		fibonacciheap.Test(h)
 	}
 	if flags["trie"] == true {
 		// Trie
-		t := ds.CreateTrie()
-		ds.TestTrie(t)
+		t := trie.CreateTrie()
+		trie.Test(t)
 	}
 }
 
@@ -113,32 +135,32 @@ func sorting(flags map[string]bool) {
 		// extremely stupid sorting,
 		// do not provide more than 5-10 elements or app could stuck
 		values := prepareValuesForSort(5)
-		sort.TestStupidSort(values[:])
+		stupidsort.Test(values[:])
 	}
 	if flags["bubble"] == true {
 		// BubbleSorting
 		values := prepareValuesForSort(100)
-		sort.TestBubbleSort(values[:])
+		bubblesort.Test(values[:])
 	}
 	if flags["counting"] == true {
 		// CountingSorting
 		values := prepareValuesForSort(100)
-		sort.TestCountingSort(values[:])
+		countingsort.Test(values[:])
 	}
 	if flags["selection"] == true {
 		// SelectionSorting
 		values := prepareValuesForSort(100)
-		sort.TestSelectionSort(values[:])
+		selectionsort.Test(values[:])
 	}
 	if flags["merge"] == true {
 		// MergeSorting
 		values := prepareValuesForSort(100)
-		sort.TestMergeSort(values[:])
+		mergesort.Test(values[:])
 	}
 	if flags["insert"] == true {
 		// InsertionSorting
 		values := prepareValuesForSort(100)
-		sort.TestInsertionSort(values[:])
+		insertionsort.Test(values[:])
 	}
 }
 
@@ -147,18 +169,18 @@ func searching(flags map[string]bool) {
 		// BinarySearch
 		// NOTE: array should be sorted
 		values, value := prepareValuesForSeach(true)
-		search.TestBinarySearch(values[:], value)
+		binarysearch.Test(values[:], value)
 	}
 	if flags["linear"] == true {
 		// LinearSearch
 		values, value := prepareValuesForSeach(false)
-		search.TestLinearSearch(values[:], value)
+		linearsearch.Test(values[:], value)
 	}
 	if flags["jump"] == true {
 		// JumpSearch
 		// NOTE: array should be sorted
 		values, value := prepareValuesForSeach(false)
-		search.TestJumpSearch(values[:], value)
+		jumpsearch.Test(values[:], value)
 	}
 }
 
