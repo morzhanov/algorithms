@@ -16,6 +16,7 @@ import (
 	"github.com/morzhanov/algorithms/src/ds/maxheap"
 	"github.com/morzhanov/algorithms/src/ds/minheap"
 	"github.com/morzhanov/algorithms/src/ds/optimalbst"
+	"github.com/morzhanov/algorithms/src/ds/quadtree"
 	"github.com/morzhanov/algorithms/src/ds/queue"
 	"github.com/morzhanov/algorithms/src/ds/redblacktree"
 	"github.com/morzhanov/algorithms/src/ds/set"
@@ -144,5 +145,10 @@ func RunDataStructuresTests(flags utils.AlgorithmEnableFlags) {
 			btree.Remove(key)
 			fmt.Printf("%v\n", btree.Print())
 		}
+	}
+	if flags["quadTree"] == true {
+		// QuadTree
+		qt := quadtree.Create(quadtree.CreateBounds(10, 20, 30, 40), 10, 4)
+		quadtree.Test(qt)
 	}
 }
