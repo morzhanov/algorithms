@@ -27,7 +27,8 @@ func main() {
 		"redBlackTree":     false,
 		"avlTree":          false,
 		"optimalBSTCost":   false,
-		"optimalBST":       true,
+		"optimalBST":       false,
+		"btree":            false,
 	}
 	sortingFlags := map[string]bool{
 		"stupid":    false,

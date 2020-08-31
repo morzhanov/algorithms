@@ -1,10 +1,13 @@
 package ds
 
 import (
+	"fmt"
+
 	"github.com/morzhanov/algorithms/src/ds/avltree"
 	"github.com/morzhanov/algorithms/src/ds/binarysearchtree"
 	"github.com/morzhanov/algorithms/src/ds/binarytree"
 	"github.com/morzhanov/algorithms/src/ds/binomialheap"
+	"github.com/morzhanov/algorithms/src/ds/btree"
 	"github.com/morzhanov/algorithms/src/ds/doublylinkedlist"
 	"github.com/morzhanov/algorithms/src/ds/dynamicarray"
 	"github.com/morzhanov/algorithms/src/ds/fibonacciheap"
@@ -126,5 +129,20 @@ func RunDataStructuresTests(flags utils.AlgorithmEnableFlags) {
 		keys := []int{10, 12, 20}
 		freq := []int{34, 8, 50}
 		optimalbst.Test(keys, freq)
+	}
+	if flags["btree"] == true {
+		// BTree
+		btree := btree.CreateBTree(4, 9)
+		arr := []int{4, 2, 7, 11, 1, 5, 3, 8}
+		for _, key := range arr {
+			fmt.Printf("Adding %v to BTree\n", key)
+			btree.Add(key)
+			fmt.Printf("%v\n", btree.Print())
+		}
+		for _, key := range arr {
+			fmt.Printf("Removing %v from BTree\n", key)
+			btree.Remove(key)
+			fmt.Printf("%v\n", btree.Print())
+		}
 	}
 }
