@@ -25,7 +25,9 @@ func main() {
 		"fibonacciHeap":    false,
 		"trie":             false,
 		"redBlackTree":     false,
-		"avlTree":          true,
+		"avlTree":          false,
+		"optimalBSTCost":   false,
+		"optimalBST":       true,
 	}
 	sortingFlags := map[string]bool{
 		"stupid":    false,

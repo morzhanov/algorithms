@@ -12,6 +12,7 @@ import (
 	"github.com/morzhanov/algorithms/src/ds/linkedlist"
 	"github.com/morzhanov/algorithms/src/ds/maxheap"
 	"github.com/morzhanov/algorithms/src/ds/minheap"
+	"github.com/morzhanov/algorithms/src/ds/optimalbst"
 	"github.com/morzhanov/algorithms/src/ds/queue"
 	"github.com/morzhanov/algorithms/src/ds/redblacktree"
 	"github.com/morzhanov/algorithms/src/ds/set"
@@ -107,5 +108,23 @@ func RunDataStructuresTests(flags utils.AlgorithmEnableFlags) {
 		// AVLTree
 		var tn avltree.Node
 		avltree.Test(tn)
+	}
+	if flags["optimalBSTCost"] == true {
+		// OptimalBSTCost
+		keys := []int{10, 12, 20}
+		freq := []int{34, 8, 50}
+		optimalbst.TestCost(keys, freq)
+	}
+	if flags["optimalBSTCost"] == true {
+		// OptimalBSTCost
+		keys := []int{10, 12, 20}
+		freq := []int{34, 8, 50}
+		optimalbst.TestCost(keys, freq)
+	}
+	if flags["optimalBST"] == true {
+		// OptimalBST
+		keys := []int{10, 12, 20}
+		freq := []int{34, 8, 50}
+		optimalbst.Test(keys, freq)
 	}
 }
