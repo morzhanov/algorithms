@@ -6,6 +6,7 @@ import (
 	"github.com/morzhanov/algorithms/src/sort/countingsort"
 	"github.com/morzhanov/algorithms/src/sort/insertionsort"
 	"github.com/morzhanov/algorithms/src/sort/mergesort"
+	"github.com/morzhanov/algorithms/src/sort/oddevensort"
 	"github.com/morzhanov/algorithms/src/sort/pairedinsertionsort"
 	"github.com/morzhanov/algorithms/src/sort/selectionsort"
 	"github.com/morzhanov/algorithms/src/sort/shellsort"
@@ -72,5 +73,10 @@ func RunSortTests(flags utils.AlgorithmEnableFlags) {
 		// TreeSorting
 		values := utils.PrepareValuesForSort(100)
 		treesort.Test(values[:])
+	}
+	if flags["oddEven"] == true {
+		// OddEvenSorting
+		values := utils.PrepareValuesForSort(100)
+		oddevensort.Test(values[:])
 	}
 }
