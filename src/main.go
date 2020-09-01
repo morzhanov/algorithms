@@ -33,15 +33,17 @@ func main() {
 		"graph":            false,
 		"directedGraph":    false,
 		"acyclicGraph":     false,
-		"weightedGraph":    true,
+		"weightedGraph":    false,
 	}
 	sortingFlags := map[string]bool{
-		"stupid":    false,
-		"bubble":    false,
-		"counting":  false,
-		"selection": false,
-		"merge":     false,
-		"insert":    false,
+		"stupid":       false,
+		"bubble":       false,
+		"counting":     false,
+		"selection":    false,
+		"merge":        false,
+		"insert":       false,
+		"pairedInsert": false,
+		"shell":        true,
 	}
 	searchingFlags := map[string]bool{
 		"binary": false,

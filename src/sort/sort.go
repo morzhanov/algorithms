@@ -5,7 +5,9 @@ import (
 	"github.com/morzhanov/algorithms/src/sort/countingsort"
 	"github.com/morzhanov/algorithms/src/sort/insertionsort"
 	"github.com/morzhanov/algorithms/src/sort/mergesort"
+	"github.com/morzhanov/algorithms/src/sort/pairedinsertionsort"
 	"github.com/morzhanov/algorithms/src/sort/selectionsort"
+	"github.com/morzhanov/algorithms/src/sort/shellsort"
 	"github.com/morzhanov/algorithms/src/sort/stupidsort"
 	"github.com/morzhanov/algorithms/src/utils"
 )
@@ -43,5 +45,20 @@ func RunSortTests(flags utils.AlgorithmEnableFlags) {
 		// InsertionSorting
 		values := utils.PrepareValuesForSort(100)
 		insertionsort.Test(values[:])
+	}
+	if flags["pairedInsert"] == true {
+		// PairedInsertionSorting
+		values := utils.PrepareValuesForSort(100)
+		pairedinsertionsort.Test(values[:])
+	}
+	if flags["pairedInsert"] == true {
+		// PairedInsertionSorting
+		values := utils.PrepareValuesForSort(100)
+		pairedinsertionsort.Test(values[:])
+	}
+	if flags["shell"] == true {
+		// ShellSorting
+		values := utils.PrepareValuesForSort(100)
+		shellsort.Test(values[:])
 	}
 }
