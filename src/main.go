@@ -32,7 +32,8 @@ func main() {
 		"quadTree":         false,
 		"graph":            false,
 		"directedGraph":    false,
-		"acyclicGraph":     true,
+		"acyclicGraph":     false,
+		"weightedGraph":    true,
 	}
 	sortingFlags := map[string]bool{
 		"stupid":    false,

@@ -26,6 +26,7 @@ import (
 	"github.com/morzhanov/algorithms/src/ds/stack"
 	"github.com/morzhanov/algorithms/src/ds/tree"
 	"github.com/morzhanov/algorithms/src/ds/trie"
+	"github.com/morzhanov/algorithms/src/ds/weightedgraph"
 	"github.com/morzhanov/algorithms/src/utils"
 )
 
@@ -168,5 +169,10 @@ func RunDataStructuresTests(flags utils.AlgorithmEnableFlags) {
 		// Acyclic Graph
 		g := acyclicgraph.CreateGraph()
 		acyclicgraph.Test(g)
+	}
+	if flags["weightedGraph"] == true {
+		// Weighted Graph
+		g := weightedgraph.CreateGraph()
+		weightedgraph.Test(g)
 	}
 }
