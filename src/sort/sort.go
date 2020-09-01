@@ -10,6 +10,7 @@ import (
 	"github.com/morzhanov/algorithms/src/sort/selectionsort"
 	"github.com/morzhanov/algorithms/src/sort/shellsort"
 	"github.com/morzhanov/algorithms/src/sort/stupidsort"
+	"github.com/morzhanov/algorithms/src/sort/treesort"
 	"github.com/morzhanov/algorithms/src/utils"
 )
 
@@ -66,5 +67,10 @@ func RunSortTests(flags utils.AlgorithmEnableFlags) {
 		// CoctailSorting
 		values := utils.PrepareValuesForSort(100)
 		coctailsort.Test(values[:])
+	}
+	if flags["tree"] == true {
+		// TreeSorting
+		values := utils.PrepareValuesForSort(100)
+		treesort.Test(values[:])
 	}
 }

@@ -44,7 +44,8 @@ func main() {
 		"insert":       false,
 		"pairedInsert": false,
 		"shell":        false,
-		"coctail":      true,
+		"coctail":      false,
+		"tree":         true,
 	}
 	searchingFlags := map[string]bool{
 		"binary": false,

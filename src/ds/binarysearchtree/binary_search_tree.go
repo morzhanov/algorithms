@@ -35,6 +35,11 @@ func (tn *Node) GetHeight() int {
 	return int(math.Max(float64(tn.GetLeftHeight()), float64(tn.GetRightHeight())))
 }
 
+// GetValue method returns node value
+func (tn *Node) GetValue() int {
+	return tn.value
+}
+
 // GetBalanceFactor returns node balance factor
 func (tn *Node) GetBalanceFactor() int {
 	return tn.GetLeftHeight() - tn.GetRightHeight()
@@ -181,6 +186,17 @@ func (tn *Node) Search(value int) *Node {
 		return tn.right.Search(value)
 	}
 	return nil
+}
+
+// InorderTraversal is a function to do inorder traversal of BST
+func (tn *Node) InorderTraversal() []int {
+	res := make([]int, 0)
+	if tn != nil {
+		res = append(res, tn.left.InorderTraversal()...)
+		res = append(res, tn.value)
+		res = append(res, tn.right.InorderTraversal()...)
+	}
+	return res
 }
 
 // Test method tests binary tree
