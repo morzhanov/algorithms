@@ -9,6 +9,7 @@ import (
 	"github.com/morzhanov/algorithms/src/sort/mergesort"
 	"github.com/morzhanov/algorithms/src/sort/oddevensort"
 	"github.com/morzhanov/algorithms/src/sort/pairedinsertionsort"
+	"github.com/morzhanov/algorithms/src/sort/radixsort"
 	"github.com/morzhanov/algorithms/src/sort/selectionsort"
 	"github.com/morzhanov/algorithms/src/sort/shellsort"
 	"github.com/morzhanov/algorithms/src/sort/stupidsort"
@@ -84,5 +85,10 @@ func RunSortTests(flags utils.AlgorithmEnableFlags) {
 		// CombSorting
 		values := utils.PrepareValuesForSort(100)
 		combsort.Test(values[:])
+	}
+	if flags["radix"] == true {
+		// RadixSorting
+		values := utils.PrepareValuesForSort(100)
+		radixsort.Test(values[:])
 	}
 }

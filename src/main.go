@@ -47,7 +47,8 @@ func main() {
 		"coctail":      false,
 		"tree":         false,
 		"oddEven":      false,
-		"comb":         true,
+		"comb":         false,
+		"radix":        true,
 	}
 	searchingFlags := map[string]bool{
 		"binary": false,
