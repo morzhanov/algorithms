@@ -29,7 +29,10 @@ func main() {
 		"optimalBSTCost":   false,
 		"optimalBST":       false,
 		"btree":            false,
-		"quadTree":         true,
+		"quadTree":         false,
+		"graph":            false,
+		"directedGraph":    false,
+		"acyclicGraph":     true,
 	}
 	sortingFlags := map[string]bool{
 		"stupid":    false,

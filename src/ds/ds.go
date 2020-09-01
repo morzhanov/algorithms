@@ -3,14 +3,17 @@ package ds
 import (
 	"fmt"
 
+	"github.com/morzhanov/algorithms/src/ds/acyclicgraph"
 	"github.com/morzhanov/algorithms/src/ds/avltree"
 	"github.com/morzhanov/algorithms/src/ds/binarysearchtree"
 	"github.com/morzhanov/algorithms/src/ds/binarytree"
 	"github.com/morzhanov/algorithms/src/ds/binomialheap"
 	"github.com/morzhanov/algorithms/src/ds/btree"
+	"github.com/morzhanov/algorithms/src/ds/directedgraph"
 	"github.com/morzhanov/algorithms/src/ds/doublylinkedlist"
 	"github.com/morzhanov/algorithms/src/ds/dynamicarray"
 	"github.com/morzhanov/algorithms/src/ds/fibonacciheap"
+	"github.com/morzhanov/algorithms/src/ds/graph"
 	"github.com/morzhanov/algorithms/src/ds/hashtable"
 	"github.com/morzhanov/algorithms/src/ds/linkedlist"
 	"github.com/morzhanov/algorithms/src/ds/maxheap"
@@ -150,5 +153,20 @@ func RunDataStructuresTests(flags utils.AlgorithmEnableFlags) {
 		// QuadTree
 		qt := quadtree.Create(quadtree.CreateBounds(10, 20, 30, 40), 10, 4)
 		quadtree.Test(qt)
+	}
+	if flags["graph"] == true {
+		// Graph
+		g := graph.CreateGraph()
+		graph.Test(g)
+	}
+	if flags["directedGraph"] == true {
+		// Directed Graph
+		g := directedgraph.CreateGraph()
+		directedgraph.Test(g)
+	}
+	if flags["acyclicGraph"] == true {
+		// Acyclic Graph
+		g := acyclicgraph.CreateGraph()
+		acyclicgraph.Test(g)
 	}
 }
