@@ -3,6 +3,7 @@ package sort
 import (
 	"github.com/morzhanov/algorithms/src/sort/bubblesort"
 	"github.com/morzhanov/algorithms/src/sort/coctailsort"
+	"github.com/morzhanov/algorithms/src/sort/combsort"
 	"github.com/morzhanov/algorithms/src/sort/countingsort"
 	"github.com/morzhanov/algorithms/src/sort/insertionsort"
 	"github.com/morzhanov/algorithms/src/sort/mergesort"
@@ -78,5 +79,10 @@ func RunSortTests(flags utils.AlgorithmEnableFlags) {
 		// OddEvenSorting
 		values := utils.PrepareValuesForSort(100)
 		oddevensort.Test(values[:])
+	}
+	if flags["comb"] == true {
+		// CombSorting
+		values := utils.PrepareValuesForSort(100)
+		combsort.Test(values[:])
 	}
 }
