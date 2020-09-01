@@ -2,6 +2,7 @@ package sort
 
 import (
 	"github.com/morzhanov/algorithms/src/sort/bubblesort"
+	"github.com/morzhanov/algorithms/src/sort/coctailsort"
 	"github.com/morzhanov/algorithms/src/sort/countingsort"
 	"github.com/morzhanov/algorithms/src/sort/insertionsort"
 	"github.com/morzhanov/algorithms/src/sort/mergesort"
@@ -60,5 +61,10 @@ func RunSortTests(flags utils.AlgorithmEnableFlags) {
 		// ShellSorting
 		values := utils.PrepareValuesForSort(100)
 		shellsort.Test(values[:])
+	}
+	if flags["coctail"] == true {
+		// CoctailSorting
+		values := utils.PrepareValuesForSort(100)
+		coctailsort.Test(values[:])
 	}
 }
