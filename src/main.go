@@ -50,7 +50,8 @@ func main() {
 		"comb":         false,
 		"radix":        false,
 		"pigeonhole":   false,
-		"stooge":       true,
+		"stooge":       false,
+		"gnome":        true,
 	}
 	searchingFlags := map[string]bool{
 		"binary": false,

@@ -5,6 +5,7 @@ import (
 	"github.com/morzhanov/algorithms/src/sort/coctailsort"
 	"github.com/morzhanov/algorithms/src/sort/combsort"
 	"github.com/morzhanov/algorithms/src/sort/countingsort"
+	"github.com/morzhanov/algorithms/src/sort/gnomesort"
 	"github.com/morzhanov/algorithms/src/sort/insertionsort"
 	"github.com/morzhanov/algorithms/src/sort/mergesort"
 	"github.com/morzhanov/algorithms/src/sort/oddevensort"
@@ -102,5 +103,10 @@ func RunSortTests(flags utils.AlgorithmEnableFlags) {
 		// StoogeSorting
 		values := utils.PrepareValuesForSort(100)
 		stoogesort.Test(values[:])
+	}
+	if flags["gnome"] == true {
+		// GnomeSorting
+		values := utils.PrepareValuesForSort(100)
+		gnomesort.Test(values[:])
 	}
 }
