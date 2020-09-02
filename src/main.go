@@ -48,7 +48,8 @@ func main() {
 		"tree":         false,
 		"oddEven":      false,
 		"comb":         false,
-		"radix":        true,
+		"radix":        false,
+		"pigeonhole":        true,
 	}
 	searchingFlags := map[string]bool{
 		"binary": false,

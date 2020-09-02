@@ -9,6 +9,7 @@ import (
 	"github.com/morzhanov/algorithms/src/sort/mergesort"
 	"github.com/morzhanov/algorithms/src/sort/oddevensort"
 	"github.com/morzhanov/algorithms/src/sort/pairedinsertionsort"
+	"github.com/morzhanov/algorithms/src/sort/pigeonholesort"
 	"github.com/morzhanov/algorithms/src/sort/radixsort"
 	"github.com/morzhanov/algorithms/src/sort/selectionsort"
 	"github.com/morzhanov/algorithms/src/sort/shellsort"
@@ -90,5 +91,10 @@ func RunSortTests(flags utils.AlgorithmEnableFlags) {
 		// RadixSorting
 		values := utils.PrepareValuesForSort(100)
 		radixsort.Test(values[:])
+	}
+	if flags["pigeonhole"] == true {
+		// PigeonholeSorting
+		values := utils.PrepareValuesForSort(100)
+		pigeonholesort.Test(values[:])
 	}
 }
