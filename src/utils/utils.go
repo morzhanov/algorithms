@@ -60,3 +60,11 @@ func IntMax(a int, b int) int {
 	}
 	return b
 }
+
+// IntMin function returns min int
+func IntMin(a int, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}

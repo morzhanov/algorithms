@@ -17,6 +17,7 @@ import (
 	"github.com/morzhanov/algorithms/src/sort/shellsort"
 	"github.com/morzhanov/algorithms/src/sort/stoogesort"
 	"github.com/morzhanov/algorithms/src/sort/stupidsort"
+	"github.com/morzhanov/algorithms/src/sort/timsort"
 	"github.com/morzhanov/algorithms/src/sort/treesort"
 	"github.com/morzhanov/algorithms/src/utils"
 )
@@ -114,5 +115,10 @@ func RunSortTests(flags utils.AlgorithmEnableFlags) {
 		// BucketSorting
 		values := utils.PrepareFloatValuesForSort(100)
 		bucketsort.Test(values[:])
+	}
+	if flags["tim"] == true {
+		// TimSorting
+		values := utils.PrepareValuesForSort(100)
+		timsort.Test(values[:])
 	}
 }
