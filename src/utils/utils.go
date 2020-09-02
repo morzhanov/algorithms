@@ -33,6 +33,15 @@ func PrepareValuesForSort(count int) []int {
 	return values
 }
 
+// PrepareFloatValuesForSort creates float array for sort
+func PrepareFloatValuesForSort(count int) []float64 {
+	values := make([]float64, count)
+	for i := range values {
+		values[i] = float64(rand.Intn(100)) / 100
+	}
+	return values
+}
+
 // IntComparator function compares int values
 func IntComparator(a int, b int) int {
 	if a > b {

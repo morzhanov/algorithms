@@ -51,7 +51,8 @@ func main() {
 		"radix":        false,
 		"pigeonhole":   false,
 		"stooge":       false,
-		"gnome":        true,
+		"gnome":        false,
+		"bucket":       true,
 	}
 	searchingFlags := map[string]bool{
 		"binary": false,

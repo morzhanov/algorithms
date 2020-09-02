@@ -2,6 +2,7 @@ package sort
 
 import (
 	"github.com/morzhanov/algorithms/src/sort/bubblesort"
+	"github.com/morzhanov/algorithms/src/sort/bucketsort"
 	"github.com/morzhanov/algorithms/src/sort/coctailsort"
 	"github.com/morzhanov/algorithms/src/sort/combsort"
 	"github.com/morzhanov/algorithms/src/sort/countingsort"
@@ -108,5 +109,10 @@ func RunSortTests(flags utils.AlgorithmEnableFlags) {
 		// GnomeSorting
 		values := utils.PrepareValuesForSort(100)
 		gnomesort.Test(values[:])
+	}
+	if flags["bucket"] == true {
+		// BucketSorting
+		values := utils.PrepareFloatValuesForSort(100)
+		bucketsort.Test(values[:])
 	}
 }
