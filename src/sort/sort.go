@@ -6,12 +6,14 @@ import (
 	"github.com/morzhanov/algorithms/src/sort/coctailsort"
 	"github.com/morzhanov/algorithms/src/sort/combsort"
 	"github.com/morzhanov/algorithms/src/sort/countingsort"
+	"github.com/morzhanov/algorithms/src/sort/cyclesort"
 	"github.com/morzhanov/algorithms/src/sort/gnomesort"
 	"github.com/morzhanov/algorithms/src/sort/insertionsort"
 	"github.com/morzhanov/algorithms/src/sort/mergesort"
 	"github.com/morzhanov/algorithms/src/sort/oddevensort"
 	"github.com/morzhanov/algorithms/src/sort/pairedinsertionsort"
 	"github.com/morzhanov/algorithms/src/sort/pigeonholesort"
+	"github.com/morzhanov/algorithms/src/sort/quicksort"
 	"github.com/morzhanov/algorithms/src/sort/radixsort"
 	"github.com/morzhanov/algorithms/src/sort/selectionsort"
 	"github.com/morzhanov/algorithms/src/sort/shellsort"
@@ -120,5 +122,15 @@ func RunSortTests(flags utils.AlgorithmEnableFlags) {
 		// TimSorting
 		values := utils.PrepareValuesForSort(100)
 		timsort.Test(values[:])
+	}
+	if flags["cycle"] == true {
+		// CycleSorting
+		values := utils.PrepareValuesForSort(100)
+		cyclesort.Test(values[:])
+	}
+	if flags["quick"] == true {
+		// QuickSorting
+		values := utils.PrepareValuesForSort(100)
+		quicksort.Test(values[:])
 	}
 }

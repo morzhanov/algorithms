@@ -53,7 +53,9 @@ func main() {
 		"stooge":       false,
 		"gnome":        false,
 		"bucket":       false,
-		"tim":          true,
+		"tim":          false,
+		"cycle":        false,
+		"quick":        true,
 	}
 	searchingFlags := map[string]bool{
 		"binary": false,
