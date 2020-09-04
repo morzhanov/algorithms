@@ -3,7 +3,7 @@ package utils
 import (
 	"math/rand"
 
-	"github.com/morzhanov/algorithms/src/sort/mergesort"
+	"github.com/morzhanov/algorithms/src/sort/quicksort"
 )
 
 // AlgorithmEnableFlags is a map with boolean values which disable/enable algorithm tests
@@ -19,7 +19,7 @@ func PrepareValuesForSeach(performSorting bool) ([]int, int) {
 	values[9] = value
 
 	if performSorting {
-		mergesort.MergeSort(values[:], 0, len(values)-1)
+		values = quicksort.QuickSort(values[:], 0, len(values)-1)
 	}
 	return values, value
 }

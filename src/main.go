@@ -55,12 +55,13 @@ func main() {
 		"bucket":       false,
 		"tim":          false,
 		"cycle":        false,
-		"quick":        true,
+		"quick":        false,
 	}
 	searchingFlags := map[string]bool{
-		"binary": false,
-		"linear": false,
-		"jump":   false,
+		"binary":        false,
+		"linear":        false,
+		"jump":          false,
+		"interpolation": true,
 	}
 
 	ds.RunDataStructuresTests(dataStructuresFlags)
