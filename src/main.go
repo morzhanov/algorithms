@@ -61,7 +61,8 @@ func main() {
 		"binary":        false,
 		"linear":        false,
 		"jump":          false,
-		"interpolation": true,
+		"interpolation": false,
+		"exponential":   true,
 	}
 
 	ds.RunDataStructuresTests(dataStructuresFlags)

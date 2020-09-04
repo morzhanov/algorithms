@@ -2,6 +2,7 @@ package search
 
 import (
 	"github.com/morzhanov/algorithms/src/search/binarysearch"
+	"github.com/morzhanov/algorithms/src/search/exponentialsearch"
 	"github.com/morzhanov/algorithms/src/search/interpolationserach"
 	"github.com/morzhanov/algorithms/src/search/jumpsearch"
 	"github.com/morzhanov/algorithms/src/search/linearsearch"
@@ -32,5 +33,11 @@ func RunSearchTests(flags utils.AlgorithmEnableFlags) {
 		// NOTE: array should be sorted
 		values, value := utils.PrepareValuesForSeach(true)
 		interpolationserach.Test(values[:], value)
+	}
+	if flags["exponential"] == true {
+		// ExponentialSearch
+		// NOTE: array should be sorted
+		values, value := utils.PrepareValuesForSeach(true)
+		exponentialsearch.Test(values[:], value)
 	}
 }
