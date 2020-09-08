@@ -35,6 +35,7 @@ func main() {
 		"directedGraph":    false,
 		"acyclicGraph":     false,
 		"weightedGraph":    false,
+		"dag":              false,
 	}
 	sortingFlags := map[string]bool{
 		"stupid":       false,
@@ -70,7 +71,8 @@ func main() {
 	}
 	graphFlags := map[string]bool{
 		"dijkstra":             false,
-		"cycleindirectedgraph": true,
+		"cycleindirectedgraph": false,
+		"topologicalsorting":   true,
 	}
 
 	ds.RunDataStructuresTests(dataStructuresFlags)

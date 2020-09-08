@@ -9,6 +9,7 @@ import (
 	"github.com/morzhanov/algorithms/src/ds/binarytree"
 	"github.com/morzhanov/algorithms/src/ds/binomialheap"
 	"github.com/morzhanov/algorithms/src/ds/btree"
+	"github.com/morzhanov/algorithms/src/ds/dag"
 	"github.com/morzhanov/algorithms/src/ds/directedgraph"
 	"github.com/morzhanov/algorithms/src/ds/doublylinkedlist"
 	"github.com/morzhanov/algorithms/src/ds/dynamicarray"
@@ -174,5 +175,10 @@ func RunDataStructuresTests(flags utils.AlgorithmEnableFlags) {
 		// Weighted Graph
 		g := weightedgraph.CreateGraph()
 		weightedgraph.Test(g)
+	}
+	if flags["dag"] == true {
+		// DAG
+		g := dag.CreateGraph()
+		dag.Test(g)
 	}
 }
