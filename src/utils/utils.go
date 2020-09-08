@@ -68,3 +68,11 @@ func IntMin(a int, b int) int {
 	}
 	return b
 }
+
+// RuneMax function returns max rune
+func RuneMax(a rune, b rune) rune {
+	if a > b {
+		return a
+	}
+	return b
+}
