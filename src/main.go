@@ -65,7 +65,8 @@ func main() {
 		"exponential":   false,
 		"lcs":           false,
 		"levenshtein":   false,
-		"substring":     true,
+		"substring":     false,
+		"dijkstra":      true,
 	}
 
 	ds.RunDataStructuresTests(dataStructuresFlags)

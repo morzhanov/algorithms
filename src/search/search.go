@@ -1,6 +1,7 @@
 package search
 
 import (
+	"github.com/morzhanov/algorithms/src/graph/dijkstra"
 	"github.com/morzhanov/algorithms/src/search/binarysearch"
 	"github.com/morzhanov/algorithms/src/search/exponentialsearch"
 	"github.com/morzhanov/algorithms/src/search/interpolationserach"
@@ -59,5 +60,9 @@ func RunSearchTests(flags utils.AlgorithmEnableFlags) {
 		substring.Test("money", "foodmoney")
 		substring.Test("sunday", "saturday")
 		substring.Test("day", "saturday")
+	}
+	if flags["dijkstra"] == true {
+		// Dijkstra
+		dijkstra.Test()
 	}
 }
