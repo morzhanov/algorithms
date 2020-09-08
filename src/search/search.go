@@ -8,6 +8,7 @@ import (
 	"github.com/morzhanov/algorithms/src/search/lcs"
 	"github.com/morzhanov/algorithms/src/search/levenshtein"
 	"github.com/morzhanov/algorithms/src/search/linearsearch"
+	"github.com/morzhanov/algorithms/src/search/substring"
 	"github.com/morzhanov/algorithms/src/utils"
 )
 
@@ -51,5 +52,12 @@ func RunSearchTests(flags utils.AlgorithmEnableFlags) {
 		levenshtein.Test("AGGTAB", "GXTXAYB")
 		levenshtein.Test("food", "money")
 		levenshtein.Test("sunday", "saturday")
+	}
+	if flags["substring"] == true {
+		// Substring
+		substring.Test("AGG", "AGGTAB")
+		substring.Test("money", "foodmoney")
+		substring.Test("sunday", "saturday")
+		substring.Test("day", "saturday")
 	}
 }
