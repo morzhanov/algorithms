@@ -16,6 +16,16 @@ type Graph struct {
 	adjList     AdjList
 }
 
+// GetAdjList returns graph adj list
+func (g *Graph) GetAdjList() *AdjList {
+	return &g.adjList
+}
+
+// GetVertexCount returns graph vertex count
+func (g *Graph) GetVertexCount() int {
+	return g.vertexCount
+}
+
 // CreateGraph creates graph
 func CreateGraph() *Graph {
 	return &Graph{0, make(AdjList, 0)}

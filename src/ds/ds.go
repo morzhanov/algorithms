@@ -13,7 +13,6 @@ import (
 	"github.com/morzhanov/algorithms/src/ds/doublylinkedlist"
 	"github.com/morzhanov/algorithms/src/ds/dynamicarray"
 	"github.com/morzhanov/algorithms/src/ds/fibonacciheap"
-	"github.com/morzhanov/algorithms/src/ds/graph"
 	"github.com/morzhanov/algorithms/src/ds/hashtable"
 	"github.com/morzhanov/algorithms/src/ds/linkedlist"
 	"github.com/morzhanov/algorithms/src/ds/maxheap"
@@ -23,6 +22,7 @@ import (
 	"github.com/morzhanov/algorithms/src/ds/queue"
 	"github.com/morzhanov/algorithms/src/ds/redblacktree"
 	"github.com/morzhanov/algorithms/src/ds/set"
+	"github.com/morzhanov/algorithms/src/ds/simplegraph"
 	"github.com/morzhanov/algorithms/src/ds/stack"
 	"github.com/morzhanov/algorithms/src/ds/tree"
 	"github.com/morzhanov/algorithms/src/ds/trie"
@@ -157,8 +157,8 @@ func RunDataStructuresTests(flags utils.AlgorithmEnableFlags) {
 	}
 	if flags["graph"] == true {
 		// Graph
-		g := graph.CreateGraph()
-		graph.Test(g)
+		g := simplegraph.CreateGraph()
+		simplegraph.Test(g)
 	}
 	if flags["directedGraph"] == true {
 		// Directed Graph

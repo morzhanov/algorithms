@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/morzhanov/algorithms/src/ds"
+	"github.com/morzhanov/algorithms/src/graph"
 	"github.com/morzhanov/algorithms/src/search"
 	"github.com/morzhanov/algorithms/src/sort"
 )
@@ -66,10 +67,14 @@ func main() {
 		"lcs":           false,
 		"levenshtein":   false,
 		"substring":     false,
-		"dijkstra":      true,
+	}
+	graphFlags := map[string]bool{
+		"dijkstra":             false,
+		"cycleindirectedgraph": true,
 	}
 
 	ds.RunDataStructuresTests(dataStructuresFlags)
 	sort.RunSortTests(sortingFlags)
 	search.RunSearchTests(searchingFlags)
+	graph.RunGraphTests(graphFlags)
 }
