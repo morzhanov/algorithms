@@ -6,6 +6,7 @@ import (
 	"github.com/morzhanov/algorithms/src/search/interpolationserach"
 	"github.com/morzhanov/algorithms/src/search/jumpsearch"
 	"github.com/morzhanov/algorithms/src/search/lcs"
+	"github.com/morzhanov/algorithms/src/search/levenshtein"
 	"github.com/morzhanov/algorithms/src/search/linearsearch"
 	"github.com/morzhanov/algorithms/src/utils"
 )
@@ -44,5 +45,11 @@ func RunSearchTests(flags utils.AlgorithmEnableFlags) {
 	if flags["lcs"] == true {
 		// LCS
 		lcs.Test("AGGTAB", "GXTXAYB")
+	}
+	if flags["levenshtein"] == true {
+		// Levenshtein distance
+		levenshtein.Test("AGGTAB", "GXTXAYB")
+		levenshtein.Test("food", "money")
+		levenshtein.Test("sunday", "saturday")
 	}
 }

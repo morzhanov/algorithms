@@ -63,7 +63,8 @@ func main() {
 		"jump":          false,
 		"interpolation": false,
 		"exponential":   false,
-		"lcs":           true,
+		"lcs":           false,
+		"levenshtein":   true,
 	}
 
 	ds.RunDataStructuresTests(dataStructuresFlags)

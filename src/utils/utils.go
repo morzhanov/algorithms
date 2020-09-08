@@ -69,10 +69,40 @@ func IntMin(a int, b int) int {
 	return b
 }
 
+// IntMinArr function returns min int
+func IntMinArr(ints []int) int {
+	min := ints[0]
+	for _, v := range ints {
+		if v < min {
+			min = v
+		}
+	}
+	return min
+}
+
 // RuneMax function returns max rune
 func RuneMax(a rune, b rune) rune {
 	if a > b {
 		return a
 	}
 	return b
+}
+
+// RuneMin function returns min rune
+func RuneMin(a rune, b rune) rune {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+// RuneMinArr function returns min rune
+func RuneMinArr(runes []rune) rune {
+	min := runes[0]
+	for _, r := range runes {
+		if r < min {
+			min = r
+		}
+	}
+	return min
 }
